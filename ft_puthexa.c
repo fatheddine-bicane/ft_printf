@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/20 16:57:46 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/20 17:54:13 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/20 18:47:27 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_puthexa(long n)
 {
-	int	count;
-	int	i;
-	va_list	args;
-	while (str[i])
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (n >= 16)
 	{
-		if (str[i] == % && str[i] == 'c')
-			ft_putchar(va_arg(args, char));
-		if (str[i] == % && str[i + 1] == 's')
-			ft_putstr(va_arg(args, char *));
-		if (str[i] == % && str[i + 1] == %)
-			ft_putstr('%');
-		else
-			ft_putstr(str[i]);
-		i++;
+		ft_puthexa(n / 16);
 	}
+		ft_putchar_fd(base[n % 16],1);
+}
+#include <stdio.h>
+int main()
+{
+	ft_puthexa(6788);
+	printf("\n%x", 4093409);
 }

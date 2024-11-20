@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/20 16:57:46 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/20 17:51:12 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/20 17:51:15 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	count;
-	int	i;
-	va_list	args;
-	while (str[i])
+	long	n_long;
+
+	n_long = n;
+	if (n_long < 0)
 	{
-		if (str[i] == % && str[i] == 'c')
-			ft_putchar(va_arg(args, char));
-		if (str[i] == % && str[i + 1] == 's')
-			ft_putstr(va_arg(args, char *));
-		if (str[i] == % && str[i + 1] == %)
-			ft_putstr('%');
-		else
-			ft_putstr(str[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		n_long *= -1;
+	}
+	if (n_long > 9)
+	{
+		ft_putnbr_fd(n_long / 10, fd);
+		ft_putchar_fd(n_long % 10 + 48, fd);
+	}
+	else
+	{
+		ft_putchar_fd(n_long + 48, fd);
 	}
 }

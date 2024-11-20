@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/20 16:57:46 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/20 17:51:39 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/20 17:51:45 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	count;
-	int	i;
-	va_list	args;
-	while (str[i])
+	size_t	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i] != 0)
 	{
-		if (str[i] == % && str[i] == 'c')
-			ft_putchar(va_arg(args, char));
-		if (str[i] == % && str[i + 1] == 's')
-			ft_putstr(va_arg(args, char *));
-		if (str[i] == % && str[i + 1] == %)
-			ft_putstr('%');
-		else
-			ft_putstr(str[i]);
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
