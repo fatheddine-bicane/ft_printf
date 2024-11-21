@@ -6,27 +6,50 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/20 16:57:46 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/21 21:42:29 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "libft.h"
+
+int	ft_formatchek(va_list args, char c)
+{
+	int	count;
+	
+	count = 0;
+	if (c == 'c')
+		count += ft_putchar(va_arg(args, int));
+	if (c == 's')
+		count += ft_putstr(va_arg(args, char *));
+	if (c == 'd' || c == 'i')
+		count += ft_putnbr(va_arg(args, int));
+	return (count);
+}
 
 int	ft_printf(const char *str, ...)
 {
 	int	count;
 	int	i;
 	va_list	args;
+	
+	i = 0;
+	count = 0;
+	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == % && str[i] == 'c')
-			ft_putchar(va_arg(args, char));
-		if (str[i] == % && str[i + 1] == 's')
-			ft_putstr(va_arg(args, char *));
-		if (str[i] == % && str[i + 1] == %)
-			ft_putstr('%');
+		if (str[i] == '%')
+		{
+			i++;
+			count += ft_formatchek(args, str[i]);
+			i++;
+		}
 		else
-			ft_putstr(str[i]);
-		i++;
+		{
+			ft_putchar(str[i]);
+			i++;
+			count++;
+		}
 	}
+	return (count);
 }
+

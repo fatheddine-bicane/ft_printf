@@ -1,8 +1,8 @@
+#include "libft.h"
 #include <stdio.h>
 
 int main()
 {
-	char *str;
-	unsigned long int i = (unsigned long int)(&str);
-	printf("%ld", i);
+	ft_printf("%d",ft_printf("my name is : %s, and im %d years old.\n", "fatheddine", 22));
+	printf("\n%d",printf("my name is : %s, and im %d years old.\n", "fatheddine", 22));
 }
