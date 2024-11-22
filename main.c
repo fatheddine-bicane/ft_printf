@@ -3,6 +3,8 @@
 
 int main()
 {
-	ft_printf("%d",ft_printf("my name is : %s, and im %d years old.\n", "fatheddine", 22));
-	printf("\n%d",printf("my name is : %s, and im %d years old.\n", "fatheddine", 22));
+	char	*p = "test";
+	int		*pe;
+	printf("%x", printf("%p\n",p));
+	ft_printf("%p",p);
 }

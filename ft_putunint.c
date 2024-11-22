@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putunint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 17:51:12 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/22 10:44:10 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/22 10:32:27 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/22 10:45:59 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr(int n)
+int	ft_putunint(unsigned int n)
 {
-	long	n_long;
-
-	n_long = n;
-	if (n_long < 0)
+	if (n == 0)
 	{
-		ft_putchar('-');
-		n_long *= -1;
+		ft_putchar(48);
+		return (1);
 	}
-	if (n_long > 9)
-	{
-		ft_putnbr(n_long / 10);
-	}
-	ft_putchar(n_long % 10 + 48);
+	if (n > 9)
+		ft_putunint(n / 10);
+	ft_putchar(n % 10 + 48);
 	return (ft_nb_count(n));
 }

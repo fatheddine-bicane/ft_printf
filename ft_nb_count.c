@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_nb_count.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 17:51:12 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/22 10:44:10 by fbicane          ###   ########.fr       */
+/*   Created: 2024/11/22 10:43:18 by fbicane           #+#    #+#             */
+/*   Updated: 2024/11/22 10:43:44 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr(int n)
+int	ft_nb_count(long nb)
 {
-	long	n_long;
+	int		count;
 
-	n_long = n;
-	if (n_long < 0)
+	count = 0;
+	if (nb < 0)
 	{
-		ft_putchar('-');
-		n_long *= -1;
+		nb *= -1;
+		count++;
 	}
-	if (n_long > 9)
+	while (nb > 0)
 	{
-		ft_putnbr(n_long / 10);
+		nb /= 10;
+		count++;
 	}
-	ft_putchar(n_long % 10 + 48);
-	return (ft_nb_count(n));
+	return (count);
 }

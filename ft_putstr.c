@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:39 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/21 17:06:17 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/22 10:34:50 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putstr(char *s)
 	size_t	i;
 
 	if (!s)
-		return (0);
+		return (ft_printf("(null)"));
 	i = 0;
 	while (s[i] != 0)
 	{
