@@ -3,8 +3,8 @@
 
 int main()
 {
-	char	*p = "test";
+	char	*p = 0;
 	int		*pe;
-	printf("%x", printf("%p\n",p));
-	ft_printf("%p",p);
+	printf("\nthe characters printed r  : [%d]\n", printf("%p",p));
+	ft_printf("\nthe characters printed r  : [%d]\n", ft_printf("%p",p));
 }
