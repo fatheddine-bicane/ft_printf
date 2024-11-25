@@ -6,11 +6,11 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:08:15 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/22 13:25:21 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/25 11:04:46 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_puthexa_adrr(unsigned long n, char b)
 {
@@ -33,7 +33,7 @@ int	ft_puthexa_adrr(unsigned long n, char b)
 int	ft_putadrr(void *ptr)
 {
 	unsigned long	ptr_adrr;
-	int					count;
+	int				count;
 
 	if (!ptr)
 		return (ft_putstr("(nil)"));

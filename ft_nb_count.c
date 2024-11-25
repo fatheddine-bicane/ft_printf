@@ -6,11 +6,11 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:43:18 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/22 10:43:44 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/25 11:04:03 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_nb_count(long nb)
 {

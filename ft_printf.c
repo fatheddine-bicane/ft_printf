@@ -6,11 +6,11 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/23 13:44:55 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/25 11:04:13 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_formatchek(va_list args, char c)
 {
@@ -33,6 +33,8 @@ int	ft_formatchek(va_list args, char c)
 		count = ft_putunint(va_arg(args, unsigned int));
 	if (c == 'p')
 		count = ft_putadrr(va_arg(args, void *));
+	if (c == '\n')
+		count = ft_putchar('%');
 	return (count);
 }
 
@@ -46,7 +48,7 @@ int	ft_printf(const char *str, ...)
 	count = 0;
 	va_start(args, str);
 	if (!str)
-		return (0);
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -57,8 +59,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_putchar(str[i]);
-			i++;
+			ft_putchar(str[i++]);
 			count++;
 		}
 	}

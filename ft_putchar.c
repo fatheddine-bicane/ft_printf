@@ -6,14 +6,13 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:50:21 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/21 11:38:22 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/25 11:04:53 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }

@@ -6,13 +6,13 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:54:13 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/22 13:19:22 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/25 12:51:15 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_puthexa(long n, char b)
+int	ft_puthexa(unsigned int n, char b)
 {
 	char	*base_x;
 	char	*base_x_upper;

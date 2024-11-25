@@ -6,11 +6,11 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:51:39 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/22 10:34:50 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/25 11:05:04 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {

@@ -23,3 +23,4 @@ re:	fclean all
 bonus: $(BOFILES)
 
 .PHONY:	all bonus clean
+.SECONDARY : $(OFILES)
