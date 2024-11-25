@@ -1,14 +1,9 @@
 #include "ft_printf.h"
 #include <stdio.h>
+# define arg "test%d///%s///%p", 367, "test", "lalalalalallalallalal"
 
 int main()
 {
-	//char	*p = 0;
-	//int		*pe;
-	//printf("%d", printf(""));
-	//ft_printf("%d", ft_printf(0));
-	int i = -2147483679;
-	ft_printf("%d",i);
-	printf("\n");
-	printf("%d",i);
+	printf("[%d]\n", printf(arg));
+	printf("[%d]\n", ft_printf(arg));
 }
