@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/22 11:17:50 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/23 13:44:55 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	count = 0;
 	va_start(args, str);
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == '%')
