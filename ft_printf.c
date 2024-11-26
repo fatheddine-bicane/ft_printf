@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/25 11:04:13 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/26 14:35:49 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,23 @@ int	ft_formatchek(va_list args, char c)
 		count = ft_putunint(va_arg(args, unsigned int));
 	if (c == 'p')
 		count = ft_putadrr(va_arg(args, void *));
-	if (c == '\n')
-		count = ft_putchar('%');
 	return (count);
 }
 
-int	ft_printf(const char *str, ...)
+int	ft_iter_str(const char *str, va_list args, int i, int count)
 {
-	int		count;
-	int		i;
-	va_list	args;
-
-	i = 0;
-	count = 0;
-	va_start(args, str);
-	if (!str)
-		return (-1);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1])
 		{
 			i++;
 			count += ft_formatchek(args, str[i]);
 			i++;
+		}
+		else if (str[i] == '%' && str[i + 1])
+		{
+			va_end(args);
+			return (-1);
 		}
 		else
 		{
@@ -65,4 +59,18 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (count);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	int		count;
+	int		i;
+	va_list	args;
+
+	if (!str)
+		return (-1);
+	i = 0;
+	count = 0;
+	va_start(args, str);
+	return (ft_iter_str(str, args, i, count));
 }

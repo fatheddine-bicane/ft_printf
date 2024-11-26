@@ -6,13 +6,13 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:54:13 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/25 12:51:15 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/26 14:27:17 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthexa(unsigned int n, char b)
+int	ft_puthexa(unsigned long n, char b)
 {
 	char	*base_x;
 	char	*base_x_upper;
@@ -21,6 +21,11 @@ int	ft_puthexa(unsigned int n, char b)
 	count = 0;
 	base_x = "0123456789abcdef";
 	base_x_upper = "0123456789ABCDEF";
+	if (n == 0)
+	{
+		count += ft_putchar('0');
+		return (count);
+	}
 	if (n >= 16)
 		count += ft_puthexa(n / 16, b);
 	if (b == 'x')
