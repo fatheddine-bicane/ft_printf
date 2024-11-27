@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/26 14:35:49 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/11/26 15:14:10 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_formatchek(va_list args, char c)
 	if (c == 'd' || c == 'i')
 		count = ft_putnbr(va_arg(args, int));
 	if (c == 'x')
-		count = ft_puthexa(va_arg(args, long), 'x');
+		count = ft_puthexa(va_arg(args, unsigned int), 'x');
 	if (c == 'X')
-		count = ft_puthexa(va_arg(args, long), 'X');
+		count = ft_puthexa(va_arg(args, unsigned int), 'X');
 	if (c == 'u')
 		count = ft_putunint(va_arg(args, unsigned int));
 	if (c == 'p')
