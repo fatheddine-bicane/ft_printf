@@ -6,7 +6,7 @@
 /*   By: fbicane <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:21:38 by fbicane           #+#    #+#             */
-/*   Updated: 2024/11/28 15:20:43 by fbicane          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:56:01 by fbicane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_iter_str(const char *str, va_list args, int i, int count)
 			count += ft_formatchek(args, str[i]);
 			i++;
 		}
-		else if (str[i] == '%' && str[i + 1])
+		else if (str[i] == '%' && str[i + 1] == '\0')
 		{
 			va_end(args);
 			return (-1);
